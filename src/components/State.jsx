@@ -7,20 +7,26 @@ const State = () => {
 
 
 
+   const handlePrent=(e)=>{
 
+    console.log('parent')
 
-   const handleIncrement=()=>{
-        setCount(count+ 1)
+   }
+
+   const handleIncrement=(e)=>{
+        e.stopPropagation();
+        setCount((prepCou)=> prepCou +1)
     }
 
-   const handleDecrement=()=>{
+   const handleDecrement=(e)=>{
+        e.stopPropagation();
 
-    setCount(count -1)
+    setCount((prevCount)=>count - 1)
    }
 
 
   return (
-   <div>
+   <div onClick={handlePrent}>
      <div>State</div>
      <p>{count}</p>
 
